@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://csormafq3kweu"]
+
+[ext_resource type="Script" uid="uid://djd2de4j6yn5a" path="res://scripts/menu.gd" id="1_70i5f"]
+[ext_resource type="Texture2D" uid="uid://dalcyh2c4rk8w" path="res://assets/sprites/menu/menu_backdrop.png" id="1_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://bmgecmxjclx0f" path="res://assets/sprites/menu/menu_title.png" id="2_4ytvr"]
+[ext_resource type="Texture2D" uid="uid://dfnmro03bdu4h" path="res://assets/sprites/menu/menu_daven.png" id="2_i6lef"]
+[ext_resource type="Texture2D" uid="uid://ddnevvmyb1ip" path="res://assets/sprites/menu/foreground 1.png" id="3_70i5f"]
+[ext_resource type="Texture2D" uid="uid://b4tuoqlceajtb" path="res://assets/sprites/menu/play click.png" id="3_g3eks"]
+[ext_resource type="Texture2D" uid="uid://bam76gmqmvow3" path="res://assets/sprites/menu/play_hover.png" id="4_v86rl"]
+[ext_resource type="Texture2D" uid="uid://den8g08tr1arx" path="res://assets/sprites/menu/settings_hover.png" id="6_mj5lg"]
+[ext_resource type="Texture2D" uid="uid://dxlvj4pfgolv6" path="res://assets/sprites/menu/menu_dino.png" id="8_ufwb2"]
+[ext_resource type="Texture2D" uid="uid://cs4jk5uby4sbd" path="res://assets/sprites/menu/settings click.png" id="9_6cdou"]
+[ext_resource type="Texture2D" uid="uid://1hfafradmrdk" path="res://assets/sprites/menu/easy.png" id="9_i42df"]
+[ext_resource type="Texture2D" uid="uid://dr3bvv41yycip" path="res://assets/sprites/menu/standard.png" id="10_7jp70"]
+[ext_resource type="Texture2D" uid="uid://b7yfvnww8bwwh" path="res://assets/sprites/menu/hard.png" id="11_mxgkd"]
+
+[node name="menu" type="Control" unique_id=1802180330]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_70i5f")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=40155378]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mhnvy")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="foreground" type="Control" parent="." unique_id=223553336]
+anchors_preset = 0
+offset_left = 21.0
+offset_top = 2.0
+offset_right = 61.0
+offset_bottom = 42.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+
+[node name="daven" type="TextureRect" parent="foreground" unique_id=1604220684]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 357.0
+offset_right = 1046.0
+offset_bottom = 1243.0
+mouse_filter = 0
+texture = ExtResource("2_i6lef")
+expand_mode = 1
+
+[node name="foreground" type="TextureRect" parent="foreground" unique_id=314612092]
+layout_mode = 0
+offset_left = 790.0
+offset_top = 1049.0
+offset_right = 1920.625
+offset_bottom = 1437.125
+mouse_filter = 0
+texture = ExtResource("3_70i5f")
+expand_mode = 1
+
+[node name="title" type="TextureRect" parent="foreground" unique_id=1139431115]
+layout_mode = 0
+offset_left = 1014.0
+offset_top = 204.0
+offset_right = 2014.0
+offset_bottom = 938.0
+mouse_filter = 0
+texture = ExtResource("2_4ytvr")
+expand_mode = 1
+
+[node name="playbutton" type="TextureButton" parent="foreground" unique_id=320027857]
+layout_mode = 0
+offset_left = 1478.0
+offset_top = 892.0
+offset_right = 2118.0
+offset_bottom = 1142.0
+texture_normal = ExtResource("3_g3eks")
+texture_hover = ExtResource("4_v86rl")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="dino" type="TextureRect" parent="foreground" unique_id=1171003394]
+layout_mode = 0
+offset_left = 1726.0
+offset_top = 828.0
+offset_right = 2515.0
+offset_bottom = 1437.0
+texture = ExtResource("8_ufwb2")
+
+[node name="settingspanel" type="Panel" parent="." unique_id=1790027454]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -642.0
+offset_top = -360.0
+offset_right = 639.0
+offset_bottom = 365.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="easy" type="TextureButton" parent="settingspanel" unique_id=2000953615]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 313.0
+offset_right = 482.5
+offset_bottom = 518.0
+texture_normal = ExtResource("9_i42df")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="medium" type="TextureButton" parent="settingspanel" unique_id=1997116324]
+layout_mode = 0
+offset_left = 566.0
+offset_top = 361.0
+offset_right = 788.5
+offset_bottom = 471.0
+texture_normal = ExtResource("10_7jp70")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="hard" type="TextureButton" parent="settingspanel" unique_id=319768084]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 361.0
+offset_right = 1094.5
+offset_bottom = 471.0
+texture_normal = ExtResource("11_mxgkd")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="settingsbutton" type="TextureButton" parent="." unique_id=155112520]
+layout_mode = 0
+offset_left = 880.0
+offset_top = 189.0
+offset_right = 1200.0
+offset_bottom = 314.0
+texture_normal = ExtResource("9_6cdou")
+texture_hover = ExtResource("6_mj5lg")
+
+[connection signal="pressed" from="foreground/playbutton" to="." method="_on_playbutton_pressed"]
+[connection signal="pressed" from="settingspanel/easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="settingspanel/medium" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="settingspanel/hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="settingsbutton" to="." method="_on_settingsbutton_pressed"]

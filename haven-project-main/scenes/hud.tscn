@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://csauen1cdw4dh"]
+
+[ext_resource type="Script" uid="uid://btwhnxbay4vvk" path="res://scripts/hud.gd" id="1_5ysmq"]
+[ext_resource type="Texture2D" uid="uid://dbuu6bqnhefmw" path="res://assets/sprites/UI/Heart Full.png" id="1_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://dnd0php5deywo" path="res://assets/sprites/UI/Heart Empty.png" id="2_5ysmq"]
+[ext_resource type="FontFile" uid="uid://dgasvvkeokfqn" path="res://assets/fonts/ATP-Pleasurize-Exfonta21d.otf" id="4_6fi6k"]
+[ext_resource type="Texture2D" uid="uid://cv2g851rvbgha" path="res://assets/sprites/Acorn.png" id="5_uo2fv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ysmq"]
+atlas = ExtResource("2_5ysmq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fi6k"]
+atlas = ExtResource("1_oo0fn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6fjch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ysmq")
+}],
+"loop": 1,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fi6k")
+}],
+"loop": 1,
+"name": &"full",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6fjch"]
+font = ExtResource("4_6fi6k")
+font_size = 64
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_047uy"]
+atlas = ExtResource("5_uo2fv")
+margin = Rect2(128, 64, 0, 0)
+
+[node name="HUD" type="CanvasLayer" unique_id=467903024]
+script = ExtResource("1_5ysmq")
+
+[node name="Heart1" type="AnimatedSprite2D" parent="." unique_id=850771052]
+position = Vector2(64, 64)
+sprite_frames = SubResource("SpriteFrames_6fjch")
+animation = &"full"
+
+[node name="Heart2" type="AnimatedSprite2D" parent="." unique_id=1660221316]
+position = Vector2(128, 64)
+sprite_frames = SubResource("SpriteFrames_6fjch")
+animation = &"full"
+
+[node name="Heart3" type="AnimatedSprite2D" parent="." unique_id=2045454773]
+position = Vector2(192, 64)
+sprite_frames = SubResource("SpriteFrames_6fjch")
+animation = &"full"
+
+[node name="Heart4" type="AnimatedSprite2D" parent="." unique_id=834480498]
+position = Vector2(256, 64)
+sprite_frames = SubResource("SpriteFrames_6fjch")
+animation = &"full"
+
+[node name="Heart5" type="AnimatedSprite2D" parent="." unique_id=175620742]
+position = Vector2(320, 64)
+sprite_frames = SubResource("SpriteFrames_6fjch")
+animation = &"full"
+
+[node name="Label" type="Label" parent="." unique_id=677939086]
+offset_left = 1035.0
+offset_top = 28.0
+offset_right = 1189.0
+offset_bottom = 105.0
+text = "0/100"
+label_settings = SubResource("LabelSettings_6fjch")
+horizontal_alignment = 2
+
+[node name="acorn" type="TextureRect" parent="." unique_id=1811858933]
+offset_left = 992.0
+offset_top = -80.0
+offset_right = 1185.0
+offset_bottom = 48.0
+scale = Vector2(1.505, 1.505)
+texture = SubResource("AtlasTexture_047uy")
+
+[node name="Button" type="Button" parent="." unique_id=1693412297 groups=["pause"]]
+offset_left = 1216.0
+offset_top = 664.0
+offset_right = 1271.0
+offset_bottom = 695.0
+text = "Pause"

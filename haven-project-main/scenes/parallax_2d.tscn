@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b1iemxran7rih"]
+
+[ext_resource type="Texture2D" uid="uid://dalcyh2c4rk8w" path="res://assets/sprites/Backdrop.png" id="1_8sr37"]
+
+[node name="Parallax2D" type="CanvasLayer" unique_id=644866813]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=666249019]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1281.0
+offset_bottom = 639.0
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=966533505]
+scroll_scale = Vector2(1.1, 1.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=676790211]
+position = Vector2(1648, 336)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_8sr37")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D" unique_id=417796172]
+position = Vector2(-240.00003, 336)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_8sr37")
+flip_h = true

@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dulo0ngvlnmey"]
+
+[ext_resource type="Script" uid="uid://dmacqfaxnfdfm" path="res://scripts/pause_menu.gd" id="1_n87rw"]
+[ext_resource type="FontFile" uid="uid://dgasvvkeokfqn" path="res://assets/fonts/ATP-Pleasurize-Exfonta21d.otf" id="2_myx47"]
+[ext_resource type="Texture2D" uid="uid://h4gyqhmnl6on" path="res://icon.svg" id="3_5d2l8"]
+[ext_resource type="Texture2D" uid="uid://cs4jk5uby4sbd" path="res://assets/sprites/menu/settings click.png" id="4_7l7mv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kukqi"]
+font = ExtResource("2_myx47")
+font_size = 128
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5d2l8"]
+font = ExtResource("2_myx47")
+font_size = 64
+font_color = Color(0, 0, 0, 1)
+
+[node name="Pause_Menu" type="CanvasLayer" unique_id=1522327285]
+process_mode = 3
+script = ExtResource("1_n87rw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1933104910]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0740967
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.9985104)
+color = Color(1, 1, 1, 0.78431374)
+
+[node name="Label" type="Label" parent="." unique_id=1589045271]
+offset_left = 424.0
+offset_top = 152.0
+offset_right = 808.0
+offset_bottom = 463.0
+theme_override_font_sizes/font_size = 64
+text = "Paused
+"
+label_settings = SubResource("LabelSettings_kukqi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mute" type="TextureButton" parent="." unique_id=614858946]
+offset_left = 752.0
+offset_top = 400.0
+offset_right = 792.0
+offset_bottom = 440.00003
+toggle_mode = true
+texture_normal = ExtResource("3_5d2l8")
+
+[node name="Resume" type="TextureButton" parent="." unique_id=19128141]
+offset_left = 432.0
+offset_top = 391.99997
+offset_right = 752.0
+offset_bottom = 517.0
+texture_normal = ExtResource("4_7l7mv")
+
+[node name="Label2" type="Label" parent="." unique_id=1111224374]
+offset_left = 408.0
+offset_top = 336.0
+offset_right = 792.0
+offset_bottom = 647.0
+theme_override_font_sizes/font_size = 64
+text = "Resume
+"
+label_settings = SubResource("LabelSettings_5d2l8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Label2" unique_id=1124687973]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 8.0
+offset_right = 600.0
+offset_bottom = 319.0
+theme_override_font_sizes/font_size = 64
+text = "Mute
+"
+label_settings = SubResource("LabelSettings_5d2l8")
+horizontal_alignment = 1
+vertical_alignment = 1

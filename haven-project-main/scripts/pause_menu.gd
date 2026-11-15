@@ -1,0 +1,45 @@
+extends CanvasLayer
+
+@onready var mute_button = $Mute 
+@onready var resume_button = $Resume
+
+func _ready():
+	hide() 
+
+	mute_button.pressed.connect(_on_mute_toggled)
+	resume_button.pressed.connect(toggle_pause)
+	update_mute_icon()
+
+	var hud_pause_btn = get_tree().get_first_node_in_group("pause")
+	if hud_pause_btn:
+		print("connected")
+		hud_pause_btn.pressed.connect(toggle_pause)
+
+func toggle_pause():
+	var new_pause_state = !get_tree().paused
+	get_tree().paused = new_pause_state
+	visible = new_pause_state
+	#SFX.play("Click")
+
+	var music_bus_index = AudioServer.get_bus_index("Music")
+
+	if new_pause_state:
+		AudioServer.set_bus_volume_db(music_bus_index, -20.0)
+	else:
+		AudioServer.set_bus_volume_db(music_bus_index, -9.0)
+
+func _on_mute_toggled():
+	#SFX.play("Click")
+	var is_muted = mute_button.button_pressed 
+	AudioServer.set_bus_mute(0, is_muted)
+	
+	if "is_muted" in Global:
+		Global.is_muted = is_muted
+
+func update_mute_icon():
+	mute_button.button_pressed = AudioServer.is_bus_mute(0)
+
+func _input(event):
+	if event.is_action_pressed("pause"):
+		#SFX.play("Click")
+		toggle_pause()

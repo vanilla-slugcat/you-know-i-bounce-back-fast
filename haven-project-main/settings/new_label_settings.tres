@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://cm4fhwtli85nr"]
+
+[ext_resource type="FontFile" uid="uid://dgasvvkeokfqn" path="res://assets/fonts/ATP-Pleasurize-Exfonta21d.otf" id="1_biktd"]
+
+[resource]
+font = ExtResource("1_biktd")
+font_size = 32

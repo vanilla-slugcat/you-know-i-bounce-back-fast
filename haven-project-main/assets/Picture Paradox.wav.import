@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://yfog216xyed5"
+path="res://.godot/imported/Picture Paradox.wav-6358c5d3844a4b1dd1a385cd4d33cbb8.sample"
+
+[deps]
+
+source_file="res://assets/Picture Paradox.wav"
+dest_files=["res://.godot/imported/Picture Paradox.wav-6358c5d3844a4b1dd1a385cd4d33cbb8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

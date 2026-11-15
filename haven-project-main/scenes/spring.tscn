@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://balrqxq2dmvwd"]
+
+[ext_resource type="Texture2D" uid="uid://dtaud51w8ggm3" path="res://assets/sprites/Mushroom.png" id="2_6vrsj"]
+[ext_resource type="Script" uid="uid://cgxtl41ptfnfg" path="res://scripts/spring.gd" id="2_f6w1c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjw23"]
+size = Vector2(64, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6w1c"]
+atlas = ExtResource("2_6vrsj")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iudvb"]
+atlas = ExtResource("2_6vrsj")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l13eo"]
+atlas = ExtResource("2_6vrsj")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrxyh"]
+atlas = ExtResource("2_6vrsj")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7nqg"]
+atlas = ExtResource("2_6vrsj")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vrsj"]
+atlas = ExtResource("2_6vrsj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqx6w"]
+atlas = ExtResource("2_6vrsj")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6fjch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6w1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iudvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l13eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrxyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7nqg")
+}],
+"loop": 0,
+"name": &"bounce",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vrsj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqx6w")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vrsj"]
+size = Vector2(64, 32)
+
+[node name="Spring" type="Node2D" unique_id=1743413955]
+script = ExtResource("2_f6w1c")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=929225934]
+position = Vector2(0, 5)
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=386538799]
+position = Vector2(0, -32.5)
+shape = SubResource("RectangleShape2D_pjw23")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1471166315]
+position = Vector2(0, -29)
+sprite_frames = SubResource("SpriteFrames_6fjch")
+autoplay = "default"
+frame_progress = 0.8225132
+speed_scale = 0.45
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=224713814]
+position = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=553275362]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_6vrsj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

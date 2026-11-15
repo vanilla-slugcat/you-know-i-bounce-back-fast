@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://0joi718sgc4h"]
+
+[ext_resource type="Script" uid="uid://bp426mejcyytq" path="res://scripts/unkillable.gd" id="1_15phn"]
+[ext_resource type="Texture2D" uid="uid://blk7upty4fyed" path="res://assets/sprites/enemies/Enemy_Unkillable.png" id="2_15phn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfb0b"]
+atlas = ExtResource("2_15phn")
+region = Rect2(0, 0, 127, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghab0"]
+atlas = ExtResource("2_15phn")
+region = Rect2(127, 0, 127, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6fjch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfb0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghab0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjw23"]
+size = Vector2(50, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6pvg"]
+size = Vector2(40, 40)
+
+[node name="Unkillable" type="CharacterBody2D" unique_id=1237715612]
+position = Vector2(0, -4)
+collision_layer = 8
+input_pickable = true
+script = ExtResource("1_15phn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1319105168]
+position = Vector2(0, -25)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_6fjch")
+autoplay = "default"
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=929225934]
+position = Vector2(0, 5)
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=386538799]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_pjw23")
+
+[node name="RayCast" type="RayCast2D" parent="." unique_id=654955201]
+position = Vector2(0, -16)
+target_position = Vector2(25, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1117576651]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_n6pvg")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
